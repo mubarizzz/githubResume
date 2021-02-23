@@ -76,7 +76,7 @@ const Wrapper = styled.article`
     }
     h4 {
       margin-bottom: 0.25rem;
-      color: #5d001e;;
+      color: #5d001e;
     }
     p {
       margin-bottom: 0;

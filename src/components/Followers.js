@@ -3,11 +3,30 @@ import { GithubContext } from '../context/context';
 import styled from 'styled-components';
 
 const Followers = () => {
-  return <h2>followers component</h2>;
+  const { followers } = React.useContext(GithubContext);
+
+  return (
+    <Wrapper>
+      <div className='followers'>
+        {followers.map((follower, index) => {
+          const { avatar_url: img, html_url, login } = follower;
+          return (
+            <article key={index}>
+              <img src={img} alt={login} />
+              <div>
+                <h4>{login}</h4>
+                <a href={html_url}>{html_url}</a>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.article`
-  background: var(--clr-white);
+background:  #e3e2df;
   border-top-right-radius: var(--radius);
   border-bottom-left-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
@@ -19,8 +38,8 @@ const Wrapper = styled.article`
     top: 0;
     left: 0;
     transform: translateY(-100%);
-    background: var(--clr-white);
-    color: var(--clr-grey-5);
+    background:  #e3e2df;
+    color: hsl(210, 22%, 49%);
     border-top-right-radius: var(--radius);
     border-top-left-radius: var(--radius);
     text-transform: capitalize;
@@ -33,6 +52,7 @@ const Wrapper = styled.article`
     height: 260px;
     display: grid;
     grid-template-rows: repeat(auto-fill, minmax(45px, 1fr));
+    background:  #e3e2df;
     gap: 1.25rem 1rem;
     padding: 1rem 2rem;
   }
@@ -52,9 +72,10 @@ const Wrapper = styled.article`
     }
     h4 {
       margin-bottom: 0;
+      color: #5d001e;
     }
     a {
-      color: var(--clr-grey-5);
+      color: hsl(210, 22%, 49%);
     }
   }
 `;
