@@ -72,7 +72,7 @@ const Wrapper = styled.section`
   .item {
     border-radius: var(--radius);
     padding: 1rem 2rem;
-    background: #e3afbc;
+    background: #e3e2df;
     display: grid;
     grid-template-columns: auto 1fr;
     column-gap: 3rem;
@@ -90,6 +90,7 @@ const Wrapper = styled.section`
     h3 {
       margin-bottom: 0;
       letter-spacing: 0;
+      color: #5d001e;
     }
     p {
       margin-bottom: 0;

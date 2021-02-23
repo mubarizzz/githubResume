@@ -3,10 +3,46 @@ import { GithubContext } from '../context/context';
 import styled from 'styled-components';
 import { MdBusiness, MdLocationOn, MdLink } from 'react-icons/md';
 const Card = () => {
-  return <h2>card component</h2>;
+  const { githubUser } = React.useContext(GithubContext);
+  const {
+    avatar_url,
+    html_url,
+    name,
+    company,
+    blog,
+    bio,
+    location,
+    twitter_username,
+  } = githubUser;
+
+  return (
+    <Wrapper>
+      <header>
+        <img src={avatar_url} alt={name} />
+        <div>
+          <h4>{name}</h4>
+          <p>@{twitter_username || 'john doe'}</p>
+        </div>
+        <a href={html_url}>follow</a>
+      </header>
+      <p className='bio'>{bio}</p>
+      <div className='links'>
+        <p>
+          <MdBusiness></MdBusiness> {company}
+        </p>
+        <p>
+          <MdLocationOn></MdLocationOn> {location || 'earth'}
+        </p>
+        <a href={`https://${blog}`}>
+          <MdLink></MdLink>
+          {blog}
+        </a>
+      </div>
+    </Wrapper>
+  );
 };
 const Wrapper = styled.article`
-  background: var(--clr-white);
+  background:  #e3e2df;
   padding: 1.5rem 2rem;
   border-top-right-radius: var(--radius);
   border-bottom-left-radius: var(--radius);
@@ -18,8 +54,8 @@ const Wrapper = styled.article`
     top: 0;
     left: 0;
     transform: translateY(-100%);
-    background: var(--clr-white);
-    color: var(--clr-grey-5);
+    background:  #e3e2df;
+    color: hsl(210, 22%, 49%);
     border-top-right-radius: var(--radius);
     border-top-left-radius: var(--radius);
     text-transform: capitalize;
@@ -40,13 +76,14 @@ const Wrapper = styled.article`
     }
     h4 {
       margin-bottom: 0.25rem;
+      color: #5d001e;;
     }
     p {
       margin-bottom: 0;
     }
     a {
-      color: var(--clr-primary-5);
-      border: 1px solid var(--clr-primary-5);
+      color: #5d001e;
+      border: 1px solid #5d001e;
       padding: 0.25rem 0.75rem;
       border-radius: 1rem;
       text-transform: capitalize;
@@ -54,13 +91,13 @@ const Wrapper = styled.article`
       transition: var(--transition);
       cursor: pointer;
       &:hover {
-        background: var(--clr-primary-5);
-        color: var(--clr-white);
+        background: #5d001e;
+        color: white;
       }
     }
   }
   .bio {
-    color: var(--clr-grey-3);
+    color: hsl(209, 34%, 30%);
   }
   .links {
     p,
@@ -74,13 +111,13 @@ const Wrapper = styled.article`
       }
     }
     a {
-      color: var(--clr-primary-5);
+      color: #5d001e;
       transition: var(--transition);
       svg {
-        color: var(--clr-grey-5);
+        color: #5d001e;
       }
       &:hover {
-        color: var(--clr-primary-3);
+        color: #9a1750);
       }
     }
   }

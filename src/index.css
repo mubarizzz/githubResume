@@ -68,8 +68,8 @@ Global Styles
 }
 body {
   font-family: var(--ff-secondary);
-  background: #e3e2df;
-  color: #5d001e;
+  background: #5d001e;
+  color: #e3e2df;
   line-height: 1.5;
   font-size: 0.875rem;
 }
@@ -137,7 +137,7 @@ p {
 
 .btn {
   text-transform: uppercase;
-  background: #5d001e;
+  background: #ee4c7c;
   color: white;
   padding: 0.375rem 0.75rem;
   letter-spacing: var(--spacing);
@@ -151,7 +151,7 @@ p {
   border-radius: var(--radius);
 }
 .btn:hover {
-  background: #9a1750;
+  background: #e3e2df;
   color: black;
 }
 
