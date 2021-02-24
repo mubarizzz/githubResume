@@ -2,8 +2,44 @@ import React from 'react';
 import styled from 'styled-components';
 import { MdSearch } from 'react-icons/md';
 import { GithubContext } from '../context/context';
+
 const Search = () => {
-  return <h2>search component</h2>;
+  const [user, setUser] = React.useState('');
+  const { requests, error, searchGithubUser, isLoading } = React.useContext(GithubContext);
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (user) {
+      searchGithubUser(user);
+    }
+  };
+  return (
+    <section className='section'>
+      <Wrapper className='section-center'>
+        {error.show && (
+          <ErrorWrapper>
+            <p>{error.msg}</p>
+          </ErrorWrapper>
+        )}
+        <form onSubmit={handleSubmit}>
+          <div className='form-control'>
+            <MdSearch />
+            <input
+              type='text'
+              placeholder='enter github user'
+              value={user}
+              onChange={(e) => setUser(e.target.value)}
+            />
+            {requests > 0 && !isLoading && (
+              <button type='submit'>search</button>
+            )}
+          </div>
+        </form>
+        <h3>requests : {requests} / 60</h3>
+      </Wrapper>
+    </section>
+  );
 };
 
 const Wrapper = styled.div`
@@ -18,7 +54,7 @@ const Wrapper = styled.div`
     }
   }
   .form-control {
-    background: var(--clr-white);
+    background:  #e3e2df;
     display: grid;
     align-items: center;
     grid-template-columns: auto 1fr auto;
@@ -27,13 +63,13 @@ const Wrapper = styled.div`
     padding: 0.5rem;
     input {
       border-color: transparent;
-      outline-color: var(--clr-grey-10);
+      outline-color: #f1f5f8;
       letter-spacing: var(--spacing);
-      color: var(--clr-grey-3);
+      color: hsl(209, 34%, 30%);
       padding: 0.25rem 0.5rem;
     }
     input::placeholder {
-      color: var(--clr-grey-3);
+      color: hsl(209, 34%, 30%);
       text-transform: capitalize;
       letter-spacing: var(--spacing);
     }
@@ -43,18 +79,18 @@ const Wrapper = styled.div`
       padding: 0.25rem 0.5rem;
       text-transform: capitalize;
       letter-spacing: var(--spacing);
-      background: var(--clr-primary-5);
-      color: var(--clr-white);
+      background: #5d001e;
+      color: white;
       transition: var(--transition);
       cursor: pointer;
       &:hover {
-        background: var(--clr-primary-8);
-        color: var(--clr-primary-1);
+        background: #9a1750;
+        color: hsl(185, 91%, 17%);
       }
     }
 
     svg {
-      color: var(--clr-grey-5);
+      color:  hsl(210, 22%, 49%);
     }
     input,
     button,
@@ -71,7 +107,7 @@ const Wrapper = styled.div`
   }
   h3 {
     margin-bottom: 0;
-    color: var(--clr-grey-5);
+    color:  hsl(210, 22%, 49%);
     font-weight: 400;
   }
 `;
