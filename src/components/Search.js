@@ -27,7 +27,7 @@ const Search = () => {
             <MdSearch />
             <input
               type='text'
-              placeholder='enter github user'
+              placeholder='Search user'
               value={user}
               onChange={(e) => setUser(e.target.value)}
             />
@@ -36,7 +36,7 @@ const Search = () => {
             )}
           </div>
         </form>
-        <h3>requests : {requests} / 60</h3>
+        {/* <h3>requests : {requests} / 60</h3> */}
       </Wrapper>
     </section>
   );
@@ -84,7 +84,7 @@ const Wrapper = styled.div`
       transition: var(--transition);
       cursor: pointer;
       &:hover {
-        background: #9a1750;
+        background: white;
         color: hsl(185, 91%, 17%);
       }
     }

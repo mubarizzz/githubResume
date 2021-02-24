@@ -3,22 +3,30 @@ import styled from 'styled-components';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const Navbar = () => {
-  return <h2>navbar component</h2>;
+  return <Wrapper>
+    <div className="header">
+    <h3>GitHub Resume</h3>
+    </div>
+    </Wrapper>;
 };
 
 const Wrapper = styled.nav`
   padding: 1.5rem;
   margin-bottom: 4rem;
-  background: var(--clr-white);
+  background: #e3e2df;
   text-align: center;
   display: grid;
   grid-template-columns: auto auto 100px;
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
-  h4 {
+  .header {
+    width: 100vw;
+  }
+  h3 {
     margin-bottom: 0;
     font-weight: 400;
+    color: #5d001e;
   }
   img {
     width: 35px !important;
@@ -26,15 +34,15 @@ const Wrapper = styled.nav`
     border-radius: 50%;
     object-fit: cover;
   }
-  button {
-    background: transparent;
-    border: transparent;
-    font-size: 1.2rem;
-    text-transform: capitalize;
-    letter-spacing: var(--spacing);
-    color: var(--clr-grey-5);
-    cursor: pointer;
-  }
+  // button {
+  //   background: transparent;
+  //   border: transparent;
+  //   font-size: 1.2rem;
+  //   text-transform: capitalize;
+  //   letter-spacing: var(--spacing);
+  //   color: var(--clr-grey-5);
+  //   cursor: pointer;
+  // }
 `;
 
 export default Navbar;

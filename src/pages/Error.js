@@ -6,7 +6,7 @@ const Error = () => {
   <Wrapper>
   <div>
     <h1>Error 404</h1>
-    <h3>sorry, this does not exist</h3>
+    <h3>sorry, this page does not exist</h3>
     <Link to='/' className='btn'>
       Return To Home
     </Link>
